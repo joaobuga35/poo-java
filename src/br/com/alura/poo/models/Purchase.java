@@ -1,6 +1,6 @@
 package br.com.alura.poo.models;
 
-public class Purchase {
+public class Purchase implements Comparable<Purchase> {
     private String description;
     private double value;
 
@@ -23,4 +23,14 @@ public class Purchase {
                 " value= " + value;
     }
 
+    @Override
+    public int compareTo(Purchase otherPurchase) {
+        if (this.value < otherPurchase.value) {
+            return -1;
+        }
+        if (this.value > otherPurchase.value) {
+            return 1;
+        }
+        return 0;
+    }
 }

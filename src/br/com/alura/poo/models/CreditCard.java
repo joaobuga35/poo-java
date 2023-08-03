@@ -8,14 +8,14 @@ public class CreditCard {
     private double balance;
     private List<Purchase> purchase;
 
-    private CreditCard(double limit) {
+    public CreditCard(double limit) {
         this.limit = limit;
         this.balance = limit;
         this.purchase = new ArrayList<>();
     }
 
     public boolean newPurchase(Purchase purchase) {
-        if (this.balance > purchase.getValue()) {
+        if (this.balance >= purchase.getValue()) {
             this.balance -= purchase.getValue();
             this.purchase.add(purchase);
             return true;
